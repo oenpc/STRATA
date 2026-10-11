@@ -1,0 +1,36 @@
+# 换行符与「文本 / 二进制」判定：本仓库内一律 LF。
+#
+# 为什么需要它：本包在 Windows 上开发、需被跨平台使用。若不声明，
+# Windows 上 core.autocrlf=true 会把 CRLF 写进检出的工作区，于是每次
+# 跨平台协作都产出「整文件被改动」的假 diff —— 而假 diff 会掩盖真改动。
+# 这跟本方法反复强调的失败模式是同一个：噪声让人忽略信号。
+#
+# 规则按坐标（文件类别）声明，不逐个列文件 —— 新增文件自动继承。
+
+* text=auto eol=lf
+
+# 脚本与文本：即使 auto 判定失误也必须保持 LF。
+# .mjs 有 shebang，混入 CRLF 会让 Unix 上的 `#!/usr/bin/env node` 失效。
+*.mjs   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.sh    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+
+# 二进制：禁止任何转换。当前项目没有此类文件，此处是预留 ——
+# 将来引入图片或 Office 文档时不必再补规则。
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.docx  binary
+*.xlsx  binary
+*.pptx  binary

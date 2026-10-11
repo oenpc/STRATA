@@ -1,0 +1,33 @@
+{
+  "name": "strata",
+  "version": "1.0.0",
+  "description": "Anchor agent constraints to coordinate classes, not files — so a new file inherits its rules instead of requiring new ones.",
+  "type": "module",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "measure": "node scripts/measure.mjs",
+    "bench": "node scripts/bench.mjs",
+    "check": "node scripts/check-purity.mjs"
+  },
+  "keywords": [
+    "ai-agent",
+    "coding-agent",
+    "context-engineering",
+    "repository-representation",
+    "code-understanding",
+    "software-engineering",
+    "agent-instructions"
+  ],
+  "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "docs/",
+    "templates/",
+    "scripts/"
+  ]
+}
